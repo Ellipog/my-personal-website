@@ -6,6 +6,16 @@ if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI environment variable");
 }
 
+// Define the type for our cached mongoose connection
+declare global {
+  var mongoose:
+    | {
+        conn: any;
+        promise: Promise<typeof mongoose> | null;
+      }
+    | undefined;
+}
+
 let cached = global.mongoose;
 
 if (!cached) {
@@ -13,6 +23,9 @@ if (!cached) {
 }
 
 export async function connectToDatabase() {
+  // Now TypeScript knows cached is defined
+  cached = cached || { conn: null, promise: null };
+
   if (cached.conn) {
     return cached.conn;
   }
@@ -24,9 +37,10 @@ export async function connectToDatabase() {
 
     cached.promise = mongoose
       .connect(MONGODB_URI as string, opts)
-      .then((mongoose) => {
-        return mongoose;
-      });
+      .then((mongoose) => ({
+        conn: mongoose,
+        promise: cached!.promise,
+      }));
   }
 
   try {
