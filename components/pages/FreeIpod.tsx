@@ -33,6 +33,25 @@ export default function FreeIpod({
     setEntries((prev) => prev + 1);
   };
 
+  const shareText =
+    "Wow I just entered the giveaway for a FREE iPod Classic 160GB. You can too at https://myawesomecoolwebsite.aaenz.no";
+
+  const handleShare = async (platform: string) => {
+    try {
+      await navigator.clipboard.writeText(shareText);
+      const button = document.querySelector(`[data-platform="${platform}"]`);
+      if (button) {
+        const originalText = button.textContent;
+        button.textContent = "Copied!";
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2000);
+      }
+    } catch (err) {
+      console.error("Failed to copy:", err);
+    }
+  };
+
   return (
     <div
       className={`flex flex-col items-center justify-center min-h-screen p-8 ${pressStart2P.className}`}
@@ -105,13 +124,19 @@ export default function FreeIpod({
               <p>You have {entries} entries!</p>
               <p>Share with 10 friends to DOUBLE your chances!</p>
               <div className="share-buttons">
-                <button onClick={() => window.alert("Coming soon!")}>
+                <button
+                  data-platform="MySpace"
+                  onClick={() => handleShare("MySpace")}
+                >
                   Share on MySpace
                 </button>
-                <button onClick={() => window.alert("Coming soon!")}>
+                <button
+                  data-platform="Friendster"
+                  onClick={() => handleShare("Friendster")}
+                >
                   Share on Friendster
                 </button>
-                <button onClick={() => window.alert("Coming soon!")}>
+                <button data-platform="Hi5" onClick={() => handleShare("Hi5")}>
                   Share on Hi5
                 </button>
               </div>
