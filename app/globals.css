@@ -935,3 +935,401 @@ marquee {
   margin: 10px 0;
   border: 1px solid #ff0000;
 }
+
+.questions-container {
+  background: linear-gradient(180deg, #000033, #330066);
+  border: 6px double #00ffcc;
+  box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc,
+    inset 0 0 60px rgba(0, 255, 204, 0.2);
+  padding: 20px;
+  margin: 20px 0;
+  position: relative;
+  overflow: hidden;
+  animation: backgroundPulse 4s ease-in-out infinite;
+}
+
+@keyframes backgroundPulse {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+}
+
+.questions-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 50px,
+    rgba(0, 255, 204, 0.1) 50px,
+    rgba(0, 255, 204, 0.1) 100px
+  );
+  animation: gridScroll 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes gridScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+.question-form {
+  background: rgba(51, 0, 102, 0.7);
+  border: 3px solid #ff66ff;
+  padding: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  transform: perspective(1000px) rotateX(2deg);
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+}
+
+.question-form input,
+.question-form textarea {
+  background: #000033;
+  border: 2px solid #ff66ff;
+  color: #ff66ff;
+  font-family: "Press Start 2P", cursive;
+  padding: 15px;
+  width: 100%;
+  margin-bottom: 15px;
+  clip-path: polygon(
+    0 5px,
+    5px 0,
+    calc(100% - 5px) 0,
+    100% 5px,
+    100% calc(100% - 5px),
+    calc(100% - 5px) 100%,
+    5px 100%,
+    0 calc(100% - 5px)
+  );
+}
+
+.question-form input:focus,
+.question-form textarea:focus {
+  outline: none;
+  border-color: #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+}
+
+.question-form label {
+  color: #00ffcc;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px #000033;
+}
+
+.question-entry {
+  background: rgba(51, 0, 102, 0.9);
+  border: 2px solid #ff66ff;
+  margin-bottom: 20px;
+  padding: 20px;
+  position: relative;
+  clip-path: polygon(
+    0 15px,
+    15px 0,
+    calc(100% - 15px) 0,
+    100% 15px,
+    100% calc(100% - 15px),
+    calc(100% - 15px) 100%,
+    15px 100%,
+    0 calc(100% - 15px)
+  );
+}
+
+.question-entry::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 48%,
+    #ff66ff 49%,
+    #ff66ff 51%,
+    transparent 52%
+  );
+  background-size: 10px 10px;
+  opacity: 0.1;
+  animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #00ffcc;
+  padding-bottom: 10px;
+}
+
+.question-header strong {
+  color: #ff66ff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  text-shadow: 2px 2px #000033, 4px 4px rgba(255, 102, 255, 0.3);
+}
+
+.question-date {
+  color: #00ffcc;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.7em;
+  animation: datePulse 2s infinite;
+}
+
+@keyframes datePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.question-text {
+  color: #ffffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.9em;
+  line-height: 1.6;
+  text-shadow: 2px 2px #000033;
+}
+
+.answer-section {
+  background: rgba(0, 255, 204, 0.1);
+  border-left: 4px solid #00ffcc;
+  padding: 15px;
+  margin-top: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.answer-section::after {
+  content: "ADMIN";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  color: #00ffcc;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.6em;
+  opacity: 0.3;
+}
+
+.submit-button {
+  background: linear-gradient(90deg, #ff66ff, #00ffcc);
+  border: none;
+  color: #000033;
+  font-family: "Press Start 2P", cursive;
+  font-size: 1em;
+  padding: 15px 30px;
+  cursor: pointer;
+  position: relative;
+  clip-path: polygon(
+    0 10px,
+    10px 0,
+    calc(100% - 10px) 0,
+    100% 10px,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    10px 100%,
+    0 calc(100% - 10px)
+  );
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 #000033, 0 0 20px rgba(255, 102, 255, 0.5);
+}
+
+.submit-button:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+}
+
+.ipod-container {
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border: 8px ridge #ff0000;
+  padding: 20px;
+  max-width: 800px;
+  text-align: center;
+  position: relative;
+  animation: borderGlow 2s infinite alternate;
+}
+
+.blink-warning {
+  color: #ff0000;
+  font-size: 24px;
+  animation: blink 0.5s infinite;
+  text-shadow: 2px 2px #ffff00;
+}
+
+.ipod-image-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.spinning-ipod {
+  width: 100%;
+  height: 100%;
+  animation: spin 10s linear infinite;
+}
+
+.flash-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 70%
+  );
+  animation: flash 3s infinite;
+}
+
+.rainbow-text {
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: rainbow 3s linear infinite;
+}
+
+.feature-list {
+  background: #000080;
+  border: 3px dashed #00ff00;
+  padding: 15px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+.feature-list p {
+  color: #00ff00;
+  margin: 10px 0;
+  text-shadow: 1px 1px #000000;
+}
+
+.win-button {
+  background: linear-gradient(to bottom, #ff0000, #ff6600);
+  border: 5px outset #ff0000;
+  padding: 15px 30px;
+  font-size: 20px;
+  color: #ffff00;
+  text-shadow: 2px 2px #000000;
+  cursor: pointer;
+  animation: pulse 1s infinite;
+}
+
+.win-button:hover {
+  transform: scale(1.1);
+}
+
+.success-message {
+  background: #000000;
+  border: 3px solid #00ff00;
+  padding: 20px;
+  margin: 20px 0;
+  color: #00ff00;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.share-buttons button {
+  background: #0000ff;
+  border: 2px outset #00ff00;
+  padding: 5px 10px;
+  color: #ffffff;
+}
+
+.disclaimer {
+  font-size: 8px;
+  color: #666666;
+  margin-top: 20px;
+  font-family: "Comic Sans MS", cursive;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}

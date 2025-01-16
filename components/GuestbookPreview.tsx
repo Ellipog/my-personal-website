@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 
 interface GuestbookEntry {
   _id: string;
@@ -11,7 +10,11 @@ interface GuestbookEntry {
   favorite_color: string;
 }
 
-export const GuestbookPreview = () => {
+export const GuestbookPreview = ({
+  setCurrentPage,
+}: {
+  setCurrentPage: (page: "home" | "blog" | "guestbook") => void;
+}) => {
   const [entries, setEntries] = useState<GuestbookEntry[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -73,10 +76,13 @@ export const GuestbookPreview = () => {
           )}
         </div>
       </div>
-      <Link href="/guestbook" className="preview-action-button">
+      <button
+        onClick={() => setCurrentPage("guestbook")}
+        className="preview-action-button"
+      >
         <span className="button-text">ACCESS GUESTBOOK TERMINAL</span>
         <span className="button-arrow">►</span>
-      </Link>
+      </button>
     </div>
   );
 };

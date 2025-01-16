@@ -42,6 +42,9 @@ export default function Home({
             <NavButton setCurrentPage={setCurrentPage} goal="home">
               Home
             </NavButton>
+            <NavButton setCurrentPage={setCurrentPage} goal="questions">
+              Ask Me!
+            </NavButton>
           </div>
           {/* -- UNDER CONSTRUCTION DIV BELOW -- */}
           <div className="under-construction-div">
@@ -95,7 +98,7 @@ export default function Home({
                   I&apos;m so glad you&apos;re here! 🌟
                 </p>
               </div>
-              <GuestbookPreview />
+              <GuestbookPreview setCurrentPage={setCurrentPage} />
             </div>
           </div>
         </nav>
