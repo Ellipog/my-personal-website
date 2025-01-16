@@ -10,7 +10,7 @@ if (!MONGODB_URI) {
 declare global {
   var mongoose:
     | {
-        conn: any;
+        conn: typeof mongoose | null;
         promise: Promise<typeof mongoose> | null;
       }
     | undefined;
@@ -37,10 +37,7 @@ export async function connectToDatabase() {
 
     cached.promise = mongoose
       .connect(MONGODB_URI as string, opts)
-      .then((mongoose) => ({
-        conn: mongoose,
-        promise: cached!.promise,
-      }));
+      .then(() => cached);
   }
 
   try {
