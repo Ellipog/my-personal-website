@@ -2,6 +2,8 @@ import { NavButton } from "@/components/NavButton";
 import { Marquee } from "@/components/Marquee";
 import { VisitorCounter } from "@/components/VisitorCounter";
 import { GuestbookPreview } from "@/components/GuestbookPreview";
+import { WebRing } from "@/components/WebRing";
+import Image from "next/image";
 
 export default function Home({
   setCurrentPage,
@@ -9,9 +11,9 @@ export default function Home({
   setCurrentPage: (page: "home" | "blog" | "guestbook") => void;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center h-screen p-8">
+    <div className="flex flex-col items-center justify-center h-full p-8">
       <div
-        className="h-full w-full bg-gradient-to-tr from-fuchsia-500 via-cyan-500 to-fuchsia-500 p-5 shadow-[10px_10px_5px_rgba(0,0,0,0.5)]"
+        className="h-full w-full mb-20 bg-gradient-to-tr from-fuchsia-500 via-cyan-500 to-fuchsia-500 p-5 shadow-[10px_10px_5px_rgba(0,0,0,0.5)]"
         style={{ border: "8px ridge #ff0000" }}
       >
         <nav className="flex flex-col justify-between">
@@ -29,6 +31,13 @@ export default function Home({
               🔥 Best viewed in Netscape Navigator 4.0 at 800x600 🔥
             </Marquee>
           </div>
+          <Image
+            src="/gifs/shark_surf.gif"
+            alt="Logo"
+            width={100}
+            height={100}
+            className="absolute top-20 right-20 h-52 w-52"
+          />
           <div className="flex gap-8 ml-[20%]">
             <NavButton setCurrentPage={setCurrentPage} goal="blog">
               My Blog
@@ -57,7 +66,7 @@ export default function Home({
             </div>
           </div>
           <div className="flex justify-between gap-5">
-            <div className="w-1/3 flex flex-col">
+            <div className="w-1/3 flex flex-col items-end">
               <div className="updates-section w-full h-fit">
                 <span style={{ color: "#ff00ff" }}>★ Site updates ★</span>
                 <ul>
@@ -100,6 +109,9 @@ export default function Home({
               </div>
               <GuestbookPreview setCurrentPage={setCurrentPage} />
             </div>
+          </div>
+          <div className="w-full flex justify-start -mt-72">
+            <WebRing />
           </div>
         </nav>
       </div>

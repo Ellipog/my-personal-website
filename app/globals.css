@@ -146,7 +146,7 @@ marquee {
   border: 3px solid #ff0000;
   padding: 10px;
   text-align: center;
-  margin: 20px auto;
+  margin: 50px;
   width: fit-content;
   box-shadow: 5px 5px 0px #000000;
 }
@@ -686,6 +686,7 @@ marquee {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 70px;
 }
 
 .preview-monitor {
@@ -1345,4 +1346,265 @@ marquee {
   50% {
     transform: scale(1.05);
   }
+}
+
+.webring-container {
+  background: linear-gradient(45deg, #000033, #330066);
+  border: 5px ridge #00ffff;
+  padding: 20px;
+  margin: 20px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 15px #00ffff, inset 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.webring-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0, 255, 255, 0.1) 10px,
+    rgba(0, 255, 255, 0.1) 20px
+  );
+  pointer-events: none;
+}
+
+.webring-title {
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  color: #00ffff;
+  font-size: 1.2em;
+  text-shadow: 2px 2px #000000, -2px -2px #000000;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid #00ffff;
+  position: relative;
+}
+
+.star-left,
+.star-right {
+  color: #ffff00;
+  animation: starPulse 1s infinite alternate;
+  margin: 0 10px;
+}
+
+.webring-display {
+  background: #000000;
+  border: 3px double #00ffff;
+  padding: 15px;
+  margin: 15px 0;
+  position: relative;
+}
+
+.ring-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.5s ease;
+}
+
+.ring-content.rotating {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.site-button {
+  image-rendering: pixelated;
+  border: 2px solid #00ffff;
+  animation: buttonGlow 2s infinite alternate;
+}
+
+.site-info {
+  flex: 1;
+}
+
+.site-info h3 {
+  color: #00ffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.site-info p {
+  color: #ffffff;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+.webring-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.control-button {
+  background: linear-gradient(to bottom, #000066, #000033);
+  border: 2px outset #00ffff;
+  color: #00ffff;
+  padding: 8px 15px;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.7em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.control-button:hover {
+  background: #00ffff;
+  color: #000033;
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.member-count {
+  text-align: center;
+  color: #00ffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.8em;
+  margin-top: 15px;
+  text-shadow: 1px 1px #000000;
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes starPulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes buttonGlow {
+  from {
+    box-shadow: 0 0 5px #00ffff;
+  }
+  to {
+    box-shadow: 0 0 15px #00ffff;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.site-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  transform: perspective(500px) rotateX(10deg);
+}
+
+.site-button-container:hover {
+  transform: perspective(500px) rotateX(0deg) scale(1.1);
+}
+
+.visit-button {
+  background: linear-gradient(45deg, #ff00ff, #00ffff);
+  border: 3px outset #ff00ff;
+  padding: 8px 20px;
+  margin-top: 15px;
+  color: #ffffff;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.8em;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 2px 2px #000000;
+  cursor: pointer;
+}
+
+.visit-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 2s infinite;
+}
+
+.visit-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+.visit-button.hover {
+  background: linear-gradient(45deg, #00ffff, #ff00ff);
+}
+
+.pixel-arrows {
+  position: absolute;
+  right: -100%;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffff00;
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.6em;
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    right: 10px;
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.site-info {
+  position: relative;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  border: 2px solid #00ffff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.site-info::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.1) 2px,
+    rgba(0, 255, 255, 0.1) 4px
+  );
+  pointer-events: none;
 }

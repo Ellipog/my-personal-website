@@ -17,9 +17,11 @@ export const MidiPlayer = () => {
   const [songQueue, setSongQueue] = useState<string[]>([]);
   const [currentSong, setCurrentSong] = useState<string>("");
 
-  // Initialize audio on client-side only
+  // Initialize audio on client-side only with reduced volume
   useEffect(() => {
-    setAudio(new Audio());
+    const newAudio = new Audio();
+    newAudio.volume = 0.2; // Set volume to 30%
+    setAudio(newAudio);
   }, []);
 
   const createNewQueue = useCallback(() => {
