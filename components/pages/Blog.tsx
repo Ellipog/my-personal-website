@@ -7,7 +7,7 @@ export default function Blog({
 }: {
   setCurrentPage: (page: "home" | "blog" | "guestbook") => void;
 }) {
-  const blogListRef = useRef<{ fetchPosts: () => Promise<void> }>();
+  const blogListRef = useRef<{ fetchPosts: () => Promise<void> }>(null);
 
   const handlePostCreated = useCallback(() => {
     blogListRef.current?.fetchPosts();
