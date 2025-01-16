@@ -160,7 +160,12 @@ export default function Guestbook({
               📖 Recent Signatures 📖
             </h3>
             {isLoading ? (
-              <div className="loading">Loading signatures...</div>
+              <div className="loading-container">
+                <div className="loading-bar">
+                  <div className="loading-progress"></div>
+                </div>
+                <div className="loading-text">LOADING SIGNATURES...</div>
+              </div>
             ) : (
               <div className="entries-list">
                 {entries.map((entry) => (

@@ -187,7 +187,12 @@ export default function Questions({
           <div className="questions-list">
             <h3 className="glitter-text text-center mb-4">📝 Questions 📝</h3>
             {isLoading ? (
-              <div className="loading">Loading questions...</div>
+              <div className="loading-container">
+                <div className="loading-bar">
+                  <div className="loading-progress"></div>
+                </div>
+                <div className="loading-text">LOADING QUESTIONS...</div>
+              </div>
             ) : (
               questions.map((q) => (
                 <div key={q._id} className="question-entry">
