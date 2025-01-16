@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Comic Sans MS", cursive;
+}
+
+.nav-button {
+  background: linear-gradient(to bottom, #00ff00, #008000);
+  border: 2px outset #00ff00;
+  padding: 5px 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 2px 2px #000000;
+}
+
+.nav-button:hover {
+  background: #dfe0e1;
+  color: #ff00ff;
+  transform: scale(1.2) rotate(-3deg);
+}
+
+@keyframes rainbow {
+  0% {
+    color: red;
+  }
+  20% {
+    color: yellow;
+  }
+  40% {
+    color: green;
+  }
+  60% {
+    color: blue;
+  }
+  80% {
+    color: purple;
+  }
+  100% {
+    color: red;
+  }
+}
+
+.header {
+  text-align: center;
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #ff00ff 10px,
+    #ff00ff 20px
+  );
+  padding: 20px;
+  border: 3px dashed #0000ff;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  animation: rainbow 3s infinite;
+  font-size: 48px;
+  text-shadow: 3px 3px #000000, 6px 6px #ff0000;
+}
+
+marquee {
+  background: #00ff00;
+  color: #ff00ff;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.midi-player {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background: #000000;
+  color: #00ff00;
+  padding: 10px;
+  font-family: "Courier New", monospace;
+}
+
+.skip-button {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.next-song {
+  font-style: italic;
+}
