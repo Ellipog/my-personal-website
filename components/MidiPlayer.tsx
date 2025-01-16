@@ -101,7 +101,9 @@ export const MidiPlayer = () => {
     };
   }, [audio, currentSong, playNextSong]);
 
-  const progressBar = "=".repeat(Math.floor(progress / 10));
+  const progressBar =
+    "=".repeat(Math.floor(progress / 10)) +
+    "-".repeat(10 - Math.floor(progress / 10));
 
   return (
     <div className="midi-player">
