@@ -1,18 +1,5 @@
 import { useState } from "react";
-
-interface WebRingSite {
-  name: string;
-  url: string;
-  description: string;
-}
-
-const webRingSites: WebRingSite[] = [
-  {
-    name: "Portfolio - Windows XP",
-    url: "https://portfolio.aaenz.com",
-    description: "My portfolio, made to look like and work like Windows XP!",
-  },
-];
+import { webRingSites } from "@/data/webRingSites";
 
 export const WebRing = () => {
   const [currentIndex, setCurrentIndex] = useState(0);

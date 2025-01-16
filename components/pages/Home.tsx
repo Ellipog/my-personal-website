@@ -4,6 +4,7 @@ import { VisitorCounter } from "@/components/VisitorCounter";
 import { GuestbookPreview } from "@/components/GuestbookPreview";
 import { WebRing } from "@/components/WebRing";
 import Image from "next/image";
+import { siteUpdates } from "@/data/siteUpdates";
 
 export default function Home({
   setCurrentPage,
@@ -69,25 +70,18 @@ export default function Home({
             <div className="w-1/3 flex flex-col items-end">
               <div className="updates-section w-full h-fit">
                 <span style={{ color: "#ff00ff" }}>★ Site updates ★</span>
-                <ul>
-                  <li>
-                    01/16/2014: Added 37 new rotating skull GIFs to my cursor
-                    trail! 💀✨
-                  </li>
-                  <li>01/15/2014: Fixed broken link to my Neopets shop</li>
-                  <li>
-                    01/14/2014: NEW! Added background MIDI of &quot;Poker
-                    Face&quot;!!!
-                  </li>
-                  <li>
-                    01/13/2014: OMG!! My hit counter reached 100 visitors!!1!
-                  </li>
-                  <li>
-                    01/12/2014: Added more glitter text using CoolText.com
-                  </li>
-                </ul>
+                {siteUpdates.map((update) => (
+                  <ul key={update.date}>
+                    <li>
+                      {update.date}: {update.description}
+                    </li>
+                  </ul>
+                ))}
               </div>
               <VisitorCounter />
+              <div className="w-full flex justify-start">
+                <WebRing />
+              </div>
             </div>
             <div className="w-2/3 gap-5 flex flex-col">
               <div className="welcome-section w-2/3 ml-[10%]">
@@ -109,9 +103,6 @@ export default function Home({
               </div>
               <GuestbookPreview setCurrentPage={setCurrentPage} />
             </div>
-          </div>
-          <div className="w-full flex justify-start -mt-72">
-            <WebRing />
           </div>
         </nav>
       </div>

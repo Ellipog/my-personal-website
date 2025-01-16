@@ -146,7 +146,7 @@ marquee {
   border: 3px solid #ff0000;
   padding: 10px;
   text-align: center;
-  margin: 50px;
+  margin: 30px;
   width: fit-content;
   box-shadow: 5px 5px 0px #000000;
 }
@@ -1607,4 +1607,23 @@ marquee {
     rgba(0, 255, 255, 0.1) 4px
   );
   pointer-events: none;
+}
+
+.kaomoji-display {
+  font-size: 24px;
+  color: #ff00ff;
+  text-shadow: 2px 2px #000000;
+  animation: bounce 1s infinite;
+  text-align: center;
+  margin: 10px 0;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
