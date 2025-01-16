@@ -1,4 +1,4 @@
-/* eslint-disable no-var */
+/* eslint-disable */
 
 import mongoose from "mongoose";
 
@@ -7,6 +7,16 @@ const MONGODB_URI = process.env.MONGODB_URI;
 if (!MONGODB_URI) {
   throw new Error("Please define the MONGODB_URI environment variable");
 }
+
+if (
+  !MONGODB_URI.startsWith("mongodb://") &&
+  !MONGODB_URI.startsWith("mongodb+srv://")
+) {
+  throw new Error(
+    'Invalid MongoDB URI format. URI must start with "mongodb://" or "mongodb+srv://"'
+  );
+}
+
 // Define the type for our cached mongoose connection
 declare global {
   var mongoose:
@@ -34,11 +44,21 @@ export async function connectToDatabase() {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     };
 
     cached.promise = mongoose
-      .connect(MONGODB_URI as string, opts)
-      .then(() => cached);
+      .connect(MONGODB_URI, opts)
+      .then((mongoose) => {
+        console.log("MongoDB connected successfully");
+        return mongoose;
+      })
+      .catch((error) => {
+        console.error("MongoDB connection error:", error);
+        throw error;
+      });
   }
 
   try {
