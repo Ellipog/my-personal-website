@@ -6,7 +6,7 @@ export const webRingSites = [
   },
   {
     name: "My Recipes",
-    url: "https://recipes.aaenz.com",
+    url: "https://recipes.aaenz.no",
     description: "Input your ingredients, utilities, etc, and get a recipe!",
   },
 ];
