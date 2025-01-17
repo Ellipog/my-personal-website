@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Personal Website 🌟
 
-## Getting Started
+A nostalgic tribute to the golden age of the internet - a modern take on the classic 90s/early 2000s personal website aesthetic, built with modern web technologies.
 
-First, run the development server:
+## 🚀 Features
+
+- 🏠 Retro-styled homepage with animated elements
+- 📝 Blog system with dynamic content
+- 📖 Interactive guestbook
+- ❓ Q&A section
+- 🎵 MIDI player
+- 💫 Web ring integration
+- 👥 Visitor counter
+- 🌈 Retro UI elements (marquees, animated text, construction banners)
+- 🎨 Classic 90s-inspired design with modern responsiveness
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **Database**: MongoDB with Mongoose
+- **Frontend**: React 19
+- **Development**:
+  - ESLint for code quality
+  - Turbopack for fast builds
+  - PostCSS for CSS processing
+  - Bun for package management
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/yourusername/my-personal-website.git
+   cd my-personal-website
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   bun install
+   ```
+
+3. **Set up environment variables**
+   Create a `.env` file in the root directory with:
+
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   ```
+
+4. **Run the development server**
+   ```bash
+   bun run dev
+   ```
+   The site will be available at `http://localhost:3000`
+
+## 🏗️ Building for Production
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+bun run build
+bun start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📝 Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/app` - Next.js app router and API routes
+- `/components` - React components
+- `/data` - Static data (web ring sites, songs, site updates)
+- `/models` - MongoDB/Mongoose models
+- `/public` - Static assets
+- `/lib` - Utility functions and helpers
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🌟 Contributing
 
-## Learn More
+Feel free to submit issues and pull requests!
 
-To learn more about Next.js, take a look at the following resources:
+## 📜 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the MIT license.
