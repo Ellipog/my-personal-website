@@ -74,3 +74,9 @@ bun start
 ## 🌟 Contributing
 
 Feel free to submit issues and pull requests!
+
+---
+
+<div align="center">
+by Elliot
+</div>
