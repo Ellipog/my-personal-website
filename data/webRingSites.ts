@@ -9,4 +9,9 @@ export const webRingSites = [
     url: "https://recipes.aaenz.no",
     description: "Input your ingredients, utilities, etc, and get a recipe!",
   },
+  {
+    name: "Wordle ∞",
+    url: "https://wordle.aaenz.no",
+    description: "A wordle clone, but without the daily limit!",
+  },
 ];
