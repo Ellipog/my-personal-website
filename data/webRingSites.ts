@@ -1,7 +1,7 @@
 export const webRingSites = [
   {
     name: "Portfolio - Windows XP",
-    url: "https://portfolio.aaenz.com",
+    url: "https://portfolio.aaenz.no",
     description: "My portfolio, made to look like and work like Windows XP!",
   },
   {
